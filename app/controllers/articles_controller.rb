@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   
-  before_action :require_user, except: :index
+  before_action :require_user, except: [:index]
+  before_action :require_author, only: [:edit, :update, :destory]
   
   def index
     @articles = Article.all
